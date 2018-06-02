@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+    <img src="/static/gatito.jpg" width="200">
+    <form action="" method="post">
+        Tarea: <input type="text" name="tarea">
+        <input type="submit">
+    </form>
+
+    <h2>Tareas:</h2>
+    <ul>
+        {% for tarea in tareas %}
+            <li>{{ tarea.nombre }} <a href="/eliminar/{{ tarea.id }}">(eliminar)</a> <a href="/editar/{{ tarea.id }}">(editar)</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

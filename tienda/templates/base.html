@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <title>{% block titulo %}Tienda 51{% endblock %}</title>
+</head>
+<body>
+<h1>Tienda 51</h1>
+
+<!-- Comentario de HTML -->
+{# Comentario de las plantillas #}
+{% comment %}
+    Un comentario
+    de varias líneas
+{% endcomment %}
+
+{% include 'navegacion.html' %}
+{% block contenido %}{% endblock %}
+
+<p>&copy; 2018 - Area 51</p>
+</body>
+</html>

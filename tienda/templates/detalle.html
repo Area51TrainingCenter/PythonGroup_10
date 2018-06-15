@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ producto.nombre }}{% endblock %}
+
+{% block contenido %}
+    <h1>Producto: {{ producto.nombre }}</h1>
+    <h2>Categoría: {{ producto.categoria.nombre }}</h2>
+    <h3>Precio: S/.{{ producto.precio }}</h3>
+    <h3>{{ producto.stock }} en stock</h3>
+
+    <p>{{ producto.descripcion|linebreaksbr }}</p>
+
+    <h3>Imágenes:</h3>
+    {% for imagen in producto.imagen_set.all %}
+        <img src="{{ imagen.imagen.url }}" height="200">
+    {% endfor %}
+{% endblock %}

@@ -28,12 +28,21 @@ class Producto(models.Model):
 
     categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
 
-    # - categoria
     # - imágenes
     # - calificación
 
     def __str__(self):
         return self.nombre
+
+
+class Imagen(models.Model):
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+
+    imagen = models.ImageField(
+        upload_to='productos',
+        blank=False,
+        null=False
+    )
 
 
 class Categoria(models.Model):

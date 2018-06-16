@@ -2,6 +2,8 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
+from productos.models import Producto
+
 
 class Perfil(models.Model):
     usuario = models.OneToOneField(
@@ -32,3 +34,8 @@ class Perfil(models.Model):
         blank=True,
         null=True
     )
+
+
+class Favorito(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)

@@ -3,7 +3,14 @@
 {% block titulo %}{{ producto.nombre }}{% endblock %}
 
 {% block contenido %}
-    <h1>Producto: {{ producto.nombre }}</h1>
+    <h1>
+        Producto: {{ producto.nombre }}
+        {% if favorito %}
+            <a href="{% url 'quitar_favoritos' producto.pk %}">🌟</a>
+        {% else %}
+            <a href="{% url 'agregar_favoritos' producto.pk %}">⭐️</a>
+        {% endif %}
+    </h1>
     <h2>Categoría: {{ producto.categoria.nombre }}</h2>
     <h3>Precio: S/.{{ producto.precio }}</h3>
     <h3>{{ producto.stock }} en stock</h3>

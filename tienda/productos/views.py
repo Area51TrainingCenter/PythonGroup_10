@@ -22,6 +22,11 @@ class Detalle(DetailView):
     model = Producto
     context_object_name = 'producto'
 
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['favorito'] = self.request.user.favorito_set.filter(producto=self.get_object()).exists()
+        return contexto
+
 
 class Buscador(ListView):
     template_name = 'buscador.html'
